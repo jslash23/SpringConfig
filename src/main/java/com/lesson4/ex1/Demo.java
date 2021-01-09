@@ -1,5 +1,6 @@
 package com.lesson4.ex1;
 
+import com.lesson4.ex1.config.SpringConfig;
 import com.lesson4.ex1.controllers.FileController;
 import com.lesson4.ex1.controllers.StorageController;
 import com.lesson4.ex1.dao.FileDAO;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Demo {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
-                springConfig.class
+                SpringConfig.class
         );
 
         File file = context.getBean("file", File.class);

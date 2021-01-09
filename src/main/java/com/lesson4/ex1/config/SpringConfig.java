@@ -1,24 +1,23 @@
-package com.lesson4.ex1;
+package com.lesson4.ex1.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import javax.swing.*;
+
 
 @Configuration
-@EnableWebMvc
 @ComponentScan("com.lesson4.ex1")
-public class springConfig {
-    @Bean
-    ViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }
+public class SpringConfig {
+private final ApplicationContext applicationContext;
+
+@Autowired
+   public SpringConfig(ApplicationContext applicationContext){
+    this.applicationContext=applicationContext;
+}
 }
 /*
     @Bean
