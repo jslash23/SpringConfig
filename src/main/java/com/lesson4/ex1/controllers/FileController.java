@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping(value = "/ex4file")
+@RequestMapping(value = "/file")
 public class FileController {
 
     private final FileService fileService;

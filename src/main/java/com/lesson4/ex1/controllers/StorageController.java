@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
-@RequestMapping("/ex4stor")
+@RequestMapping("/stor")
 public class StorageController {
 
 
