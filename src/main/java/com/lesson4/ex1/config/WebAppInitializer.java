@@ -8,7 +8,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class[]{SpringConfig.class};
     }
 
 //наш джава класс который исполняет роль web.xml  знает где находится Спринг конфигурация

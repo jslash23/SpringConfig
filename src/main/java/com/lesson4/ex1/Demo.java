@@ -9,7 +9,7 @@ import com.lesson4.ex1.models.Storage;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Demo {
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
                 SpringConfig.class
         );
@@ -21,8 +21,8 @@ public class Demo {
         StorageController storageController = context.getBean("storageController", StorageController.class);
 
         FileDAO fileDAO = context.getBean("fileDAO", FileDAO.class);
-        //fileController.doGetFile(,15l);
+        fileController.doGetFile(,);
 
 
-    }
+    }*/
 }

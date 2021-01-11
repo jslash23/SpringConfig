@@ -1,23 +1,25 @@
 package com.lesson4.ex1.config;
 
+import com.lesson4.ex1.models.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import javax.swing.*;
 
 
 @Configuration
 @ComponentScan("com.lesson4.ex1")
 public class SpringConfig {
-private final ApplicationContext applicationContext;
 
-@Autowired
+//private  SpringConfig springConfig;
+
+    public SpringConfig() {
+    }
+
+    @Autowired
    public SpringConfig(ApplicationContext applicationContext){
-    this.applicationContext=applicationContext;
-}
+    }
+
 }
 /*
     @Bean
