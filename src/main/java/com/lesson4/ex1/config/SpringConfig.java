@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+
 @ComponentScan("com.lesson4.ex1")
+
+
 public class SpringConfig {
 
 //private  SpringConfig springConfig;
