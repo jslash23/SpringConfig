@@ -4,6 +4,8 @@ import com.lesson4.ex1.models.File;
 import com.lesson4.ex1.service.FileService;
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,17 +30,17 @@ public class FileController {
 //@GetMapping("/read")
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/readFile")
-    public void doGetFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
+    @RequestMapping(method = RequestMethod.GET, value = "/read")
+    public ResponseEntity<String> doGetFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // метод должен возвращать в окно браузера введенное значение
         String params = req.getParameter("id");
         resp.getWriter().println(fileService.servRead(params));
+        return  ResponseEntity.ok("GET OK");
     }
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/saveFile")
-    public void doPostFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public ResponseEntity<String>  doPostFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         File file = new File();
         //считываем стрим приходящий из Постмана (метод POST)
         //мапим данные Гибернейтом
@@ -48,6 +50,7 @@ public class FileController {
         file.setFormat(req.getParameter("format"));
         fileService.servSave(file);
         resp.getWriter().println(file);
+        return  ResponseEntity.ok("Post OK");
     }
 
 

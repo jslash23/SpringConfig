@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 
-@ComponentScan("com.lesson4.ex1")
+@ComponentScan( basePackages = "com.lesson4.ex1")
 
 
 public class SpringConfig {
@@ -22,6 +22,8 @@ public class SpringConfig {
     @Autowired
    public SpringConfig(ApplicationContext applicationContext){
     }
+
+
 
 }
 /*
