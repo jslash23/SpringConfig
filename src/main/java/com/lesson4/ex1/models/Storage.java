@@ -15,13 +15,14 @@ public class Storage {
     private List<File>  files = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,
-            targetEntity = Storage.class, mappedBy = "file")//another table(STORAGE_PR) can acces
+            targetEntity = File.class, mappedBy = "storage")//another table(STORAGE_PR) can acces
 
     public List<File> getFiles() {
         return files;
     }
 
-    public void setFiles(List<File> files) {
+    public void setFiles(List<File> files)
+    {
         this.files = files;
     }
 

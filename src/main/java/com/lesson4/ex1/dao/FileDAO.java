@@ -89,7 +89,7 @@ public class FileDAO implements DAO_interface {
             transaction.begin();
 
             File findItem = (File) findById(id);
-            findItem.setName("new_comics_huyak");
+            findItem.setName("new_novel");
             findItem.setSize(10);
             //action
             session.update(findItem);

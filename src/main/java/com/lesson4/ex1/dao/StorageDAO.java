@@ -35,7 +35,7 @@ public class StorageDAO implements DAO_interface {
     @Override
     public void save(Object object) throws NumberFormatException {
         Storage storage = (Storage) object;
-        storage.setStorageCountry("Ukraine");
+       // storage.setStorageCountry("Russia");
         try (Session session = createSessionFactory().openSession()) {
 
             Transaction transaction = session.getTransaction();
