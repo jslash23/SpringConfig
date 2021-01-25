@@ -34,11 +34,10 @@ public class FileController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/read")
     @ResponseBody
-    public String doGetFile(@RequestParam String id) throws IOException {
+    public String doGetFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         // метод должен возвращать в окно браузера введенное значение
-       // String params = req.getParameter("id");
-        fileService.servRead(id);
-        return "ID: " + id;
+       String params = req.getParameter("id");
+        return  "ID is: " + fileService.servRead(params) ;
     }
 
 
