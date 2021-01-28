@@ -9,25 +9,48 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>SpringJBC Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+
+     <springframework.version>5.3.3</springframework.version>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   </properties>
 
 
 
-  <dependencies>
+   <dependencies>
+     <dependency>
+       <groupId>org.springframework</groupId>
+       <artifactId>spring-context</artifactId>
+       <version>5.3.3</version>
+     </dependency>
+
+     <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.3.3</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/springframework/spring-orm -->
+    <dependency>
+      <groupId>springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>1.2.5</version>
+    </dependency>
+
+
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>5.3.3</version>
+    </dependency>
+
+
 
 
     <dependency>
@@ -43,19 +66,31 @@
       <version>3.12.1.GA</version>
     </dependency>
 
+    <!-- Hibernate -->
+    <!-- for JPA, use hibernate-entitymanager instead of hibernate-core. Support @PersistenceContext -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>5.3.3.Final</version>
+    </dependency>
+
+
+
+
 
     <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>5.4.22.Final</version>
+      <version>5.3.3.Final</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>3.0.1</version>
+      <version>4.0.1</version>
       <scope>provided</scope>
     </dependency>
 
@@ -63,7 +98,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>4.1.0.RELEASE</version>
+      <version>5.3.3</version>
     </dependency>
 
 

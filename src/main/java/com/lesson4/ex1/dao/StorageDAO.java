@@ -44,7 +44,7 @@ public class StorageDAO implements DAO_interface {
             session.save(storage);
             transaction.commit();
             System.out.println("Save Storage done ");
-            // throw new IOException();
+             throw new IOException();
         }  catch (HibernateException e) {
             System.err.println();
 
@@ -53,6 +53,9 @@ public class StorageDAO implements DAO_interface {
                     "cath worked " + "Save Storage failed!!!" + e.getMessage());
         } catch (NumberFormatException e) {
             e.printStackTrace();
+        }
+        catch (IOException e){
+            System.out.println("error stor dao save");
         }
     }
 
@@ -89,13 +92,16 @@ public class StorageDAO implements DAO_interface {
             //action
             session.update(findStorage);
             //close session/tr
+
             transaction.commit();
+            throw new IOException();
         } catch (HibernateException e) {
             System.out.println("Nothing update!" + e.getMessage());
         }
+        catch (IOException e) {
+            System.out.println("error storage dao update");
+        }
     }
-
-
 
 
     @Override

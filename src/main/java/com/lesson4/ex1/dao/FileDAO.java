@@ -17,17 +17,19 @@ public class FileDAO implements DAO_interface {
     private static SessionFactory  sessionFactory;
 
     @Override
-    public File read(Object object) {
+    public File read(Object object)  {
         File file;
         String data = object.toString();
         Long id = Long.parseLong(data);
-        try (Session session = createSessionFactory().openSession()) {
+        try (Session session = createSessionFactory().openSession()){
             file =  session.get(File.class, id);
             //action
             //тут  сессия закроется автоматичесски
             //session.close();
-            return file;
+
         }
+
+        return file;
     }
 
 
@@ -45,7 +47,10 @@ public class FileDAO implements DAO_interface {
             session.save(file);
             transaction.commit();
             System.out.println("Save File  done ");
-            // throw new IOException();
+             throw new IOException();
+
+
+
         }  catch (HibernateException e) {
             System.err.println();
 
@@ -55,11 +60,15 @@ public class FileDAO implements DAO_interface {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
+        catch (IOException e){
+            System.out.println("Something wrong in File save method");
+            e.printStackTrace();
+        }
 
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(long id)  {
         try (Session session = createSessionFactory().openSession()) {
             //
             Query query = session.createQuery("delete from  File where id = :Id");
@@ -95,9 +104,15 @@ public class FileDAO implements DAO_interface {
             session.update(findItem);
             //close session/tr
             transaction.commit();
+            throw new IOException();
         } catch (HibernateException e) {
             System.out.println("Nothing update!" + e.getMessage());
         }
+        catch (IOException e){
+            System.out.println("Something wrong in File update method");
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -119,6 +134,7 @@ public class FileDAO implements DAO_interface {
                 objectNew =  l;
             }
             return objectNew;
+           //// return objectNew;
             //тут  сессия закроется автоматичесски
             //session.close();
         }

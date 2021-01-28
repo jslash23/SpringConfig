@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
 public class FileService implements com.lesson4.ex1.service.Service {
 
@@ -16,13 +18,13 @@ public class FileService implements com.lesson4.ex1.service.Service {
 
 
 @Override
-    public Object servRead(String params){
+    public Object servRead(String params) throws IOException {
         return dao_interface.read(params);
 
     }
 
     @Override
-    public void servSave(Object file)  {
+    public void servSave(Object file) throws IOException {
 
         // TODO: 20.12.2020  
        dao_interface.save(file);//
@@ -30,7 +32,7 @@ public class FileService implements com.lesson4.ex1.service.Service {
     }
 
     @Override
-    public void servUpdate(long id) {
+    public void servUpdate(long id) throws IOException {
 
       dao_interface.update(id);//
     }
