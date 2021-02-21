@@ -15,6 +15,10 @@ public class TestController {
         this.dao = dao;
     }
 
+    public TestController() {
+
+    }
+
 
     @RequestMapping(method = RequestMethod.POST, value = "/save-item", produces = "text/plain")
     public @ResponseBody

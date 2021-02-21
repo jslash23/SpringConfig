@@ -2,6 +2,7 @@ package com;
 
 import com.lesson5.DAO;
 import com.lesson5.ItemController;
+import com.lesson5.TestController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -66,6 +67,11 @@ public class AppConfig {
         return properties;
     }*/
 
+
+    @Bean
+    public TestController testController(){
+        return new TestController();
+    }
     @Bean
     public ItemController itemController(){
         return new ItemController();
