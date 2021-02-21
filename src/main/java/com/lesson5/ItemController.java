@@ -17,6 +17,10 @@ public class ItemController {
         this.dao = dao;
     }
 
+    public ItemController() {
+
+    }
+
 
     @RequestMapping(method = RequestMethod.POST, value = "/save", produces = "text/plain")
     public @ResponseBody

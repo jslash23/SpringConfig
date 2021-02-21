@@ -1,5 +1,7 @@
 package com;
 
+import com.lesson5.DAO;
+import com.lesson5.ItemController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -63,4 +65,15 @@ public class AppConfig {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect")
         return properties;
     }*/
+
+    @Bean
+    public ItemController itemController(){
+        return new ItemController();
+    }
+
+    @Bean
+    public DAO Dao(){
+        return new DAO();
+    }
+
 }
