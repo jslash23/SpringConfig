@@ -1,4 +1,4 @@
-package lesson5;
+package com.lesson5;
 
 import javax.persistence.*;
 

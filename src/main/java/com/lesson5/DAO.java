@@ -1,4 +1,4 @@
-package lesson5;
+package com.lesson5;
 
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;

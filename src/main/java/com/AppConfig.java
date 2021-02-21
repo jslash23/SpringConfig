@@ -1,6 +1,7 @@
-package lesson5;
+package com;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -10,11 +11,12 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.PlatformTransactionManager;
 import javax.persistence.EntityManagerFactory;
-
+import java.util.Properties;
 
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScan(basePackages = {"com"})
 
 public class AppConfig {
 
@@ -33,7 +35,6 @@ public class AppConfig {
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
        // em.setJpaProperties(additionalProperties());
-
         return em;
     }
 
@@ -46,9 +47,7 @@ public class AppConfig {
         dataSource.setUrl("jdbc:oracle:thin:@sl22-database1.cshzc28zzyct.us-east-2.rds.amazonaws.com:1521:ORCL");
         dataSource.setUsername("main");
         dataSource.setPassword("db123slash22");
-
         return dataSource;
-
     }
 
     //Standart Bean for transaction сущность отвечающие за транзакции
@@ -56,7 +55,6 @@ public class AppConfig {
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf);
-
         return transactionManager;
     }
 
